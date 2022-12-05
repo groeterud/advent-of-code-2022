@@ -522,25 +522,19 @@ move 3 from 2 to 3
 move 1 from 5 to 6
 move 1 from 2 to 7""".split("\n")	
 
-
-
 for moves in steps:
     movelist = moves.split(" ")
     quantity = int(movelist[1])
     fromStack = movelist[3]
     toStack = movelist[5]
-    print(quantity, fromStack, toStack)
     stacklist=[]
     for i in range(quantity):
         value = stacks[fromStack].pop()
         stacklist.append(value)
-    
     stacklist.reverse()
     for value in stacklist:
         stacks[toStack].append(value)
-
 final_string=""
 for key in stacks:
     final_string += str(stacks[key][-1])
-
 print(final_string)
